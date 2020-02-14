@@ -33,14 +33,14 @@ describe("Reverse", () => {
   });
 
   it("should return a string with the same length", () => {
-    for (let i = 0; i < inputs.length; i++) {
+    for (let i = 0; i < results.length; i++) {
       assert.equal(results[i].length, inputs[i].length);
     }
   });
 
   it("should reverse strings", () => {
     for (let i = 0; i < results.length; i++) {
-      assert.equal(expected[i], results[i]);
+      assert.equal(results[i], expected[i]);
     }
   });
 
