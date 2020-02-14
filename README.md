@@ -49,9 +49,10 @@ no un objeto.
 ---
 
 Añadí dos consideraciones:
-  - Los subarreglos devueltos deben tener como mínimo, 2 elementos. Subarreglos
+
+- Los subarreglos devueltos deben tener como mínimo, 2 elementos. Subarreglos
   con un solo elemento no se consideran.
-  - Cuando se encuentran subarreglos de la misma longitud, se devuelve el último
+- Cuando se encuentran subarreglos de la misma longitud, se devuelve el último
   encontrado.
 
 ### Complejidad
@@ -60,3 +61,41 @@ Espacio: `O(n)`, se ocupa un arreglo auxiliar cuyo tamaño `m` es `m <= n`.
 
 Tiempo: `O(n)`, se copian en el peor de los casos, `n/m` arreglos auxiliares,
 cada uno de `m` elementos. La complejidad sigue creciendo linealmente => `O(n)`
+
+## Duplicados
+
+Las dos ideas que aparecieron primero en mi mente:
+
+- **Eliminar** los elementos en el arreglo original, cada que se encuentre un
+  elemento igual al anterior, o
+- Crear un arreglo **auxiliar** que no contenga los duplicados.
+
+Y después recordé haber usado `Set()`, que automáticamente crea conjuntos
+(sin duplicados) de un arreglo. Consideré usar alguna de las otras dos ideas,
+para evitar usar las funciones nativas del lenguaje.
+
+---
+
+Considerando los casos extremos (`0` duplicados, `n` duplicados), concluí que:
+
+- `0` duplicados. Resulta más eficiente checar que no hay duplicados
+  (cosa que pasaría al **eliminar** duplicados), que copiar el arreglo entero
+  a un **auxiliar**
+- `n` duplicados. Resulta más costoso eliminar `n-1` elementos de un arreglo,
+  que "ignorar" o "no-pushear" `n-1` elementos a un arreglo **auxiliar**.
+
+De todos modos preferí utilizar la idea del arreglo auxiliar.
+
+Parae liminar elementos, habría usado `[].splice(i, k)`, que dependiendo de la
+implementación, puede tener diferentes complejidades de tiempo.
+
+Pero después tendría que manejar las situaciones en las que hay duplicados, y
+se tendría que actualizar el valor de longitud del arreglo. Y creo que volvería
+a la función más vulnerable a bugs lógicos.
+
+### Complejidad
+
+Espacio: `O(n)`. En el peor de los casos, hay 2 arreglos de tamaño `n`, `2n`,
+que sigue creciendo linealmente: `O(n)`.
+
+Tiempo: `O(n)`.

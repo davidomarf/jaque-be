@@ -24,10 +24,10 @@ function reverse(str) {
 
 /**
  * Find the longest increasing subarray
- * 
+ *
  * From an array, return the longest subarray such that every element
  * is bigger than the previous one.
- * @param {number[]} arr 
+ * @param {number[]} arr
  * @return {number[]} Longest subarray
  */
 function subarray(arr) {
@@ -66,7 +66,36 @@ function subarray(arr) {
   return longest;
 }
 
+/**
+ * Remove the duplicate elements in a sorted numeric array
+ * @param {number[]} arr
+ */
+function removeDuplicates(arr) {
+  // If the array is empty, return empty array.
+  if (arr.length === 0) {
+    return [];
+  } 
+  // If the array has one element, it cannot be duplicated.
+  // Return the same element
+  else if (arr.length === 1) {
+    return [arr[0]]; 
+    // Return an array with one element instead of the same array as
+    // a defensive thing.
+  }
+
+  // Since arr is non-empty, create set with the first element in arr.
+  let set = [arr[0]];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] !== arr[i - 1]) {
+      set.push(arr[i]);
+    }
+  }
+
+  return set;
+}
+
 module.exports = {
   reverse,
-  subarray
+  subarray,
+  removeDuplicates
 };
