@@ -26,6 +26,7 @@ let expected = [
 ];
 
 let results = inputs.map(e => subarray(e));
+let doubleCall = results.map(e => subarray(e));
 
 describe("Subarray", () => {
   it("should return an array", () => {
@@ -45,7 +46,6 @@ describe("Subarray", () => {
   });
 
   it("should return the same array when chained", () => {
-    let doubleCall = results.map(e => subarray(e));
     for (let i = 0; i < doubleCall.length; i++) {
       assert.deepEqual(doubleCall[i], results[i]);
     }
