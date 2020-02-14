@@ -69,6 +69,7 @@ function subarray(arr) {
 /**
  * Remove the duplicate elements in a sorted numeric array
  * @param {number[]} arr
+ * @return {number[]} Sorted array with no duplicates
  */
 function removeDuplicates(arr) {
   // If the array is empty, return empty array.
@@ -86,6 +87,7 @@ function removeDuplicates(arr) {
   // Since arr is non-empty, create set with the first element in arr.
   let set = [arr[0]];
   for (let i = 1; i < arr.length; i++) {
+    // Push only the elements that are different to the previous one.
     if (arr[i] !== arr[i - 1]) {
       set.push(arr[i]);
     }
