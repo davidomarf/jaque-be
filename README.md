@@ -46,6 +46,14 @@ Con un arreglo sin subconjuntos que cumplan con la condición,
 La implementación final se conservó, excepto que `subarray` es un arreglo y
 no un objeto.
 
+---
+
+Añadí dos consideraciones:
+  - Los subarreglos devueltos deben tener como mínimo, 2 elementos. Subarreglos
+  con un solo elemento no se consideran.
+  - Cuando se encuentran subarreglos de la misma longitud, se devuelve el último
+  encontrado.
+
 ### Complejidad
 
 Espacio: `O(n)`, se ocupa un arreglo auxiliar cuyo tamaño `m` es `m <= n`.
