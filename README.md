@@ -25,3 +25,30 @@ original, teniendo `~2n` elementos en memoria.
 
 Tiempo: `O(n)`, insertar cada caracter tiene un número constante de pasos,
 y se tienen que insertar `n` caracteres.
+
+## Subconjuntos
+
+La primera implementación que consideré consiste en:
+
+1. Crear un objeto `subarray` con propiedades `{elements: [], size: 0}`.
+2. Recorrer el arreglo recibido `arr`, añadiendo cada elemento a un arreglo
+   temporal `temp` hasta que se rompa la condición (`a[i + 1] <= a [i]`).
+   - Si la longitud del arreglo temporal `temp` es mayor que `subarray.size`:
+     - Actualizar `subarray` con nuevos elementos y tamaño.
+   - Continuar recorriendo el arreglo `arr`.
+
+Con un arreglo vacío, `subarray` sería `{elements: [], size: 0}`.
+Con un arreglo sin subconjuntos que cumplan con la condición,
+`subarray` sería `{elements: [], size: 0}`.
+
+---
+
+La implementación final se conservó, excepto que `subarray` es un arreglo y
+no un objeto.
+
+### Complejidad
+
+Espacio: `O(n)`, se ocupa un arreglo auxiliar cuyo tamaño `m` es `m <= n`.
+
+Tiempo: `O(n)`, se copian en el peor de los casos, `n/m` arreglos auxiliares,
+cada uno de `m` elementos. La complejidad sigue creciendo linealmente => `O(n)`
