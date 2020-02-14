@@ -99,3 +99,37 @@ Espacio: `O(n)`. En el peor de los casos, hay 2 arreglos de tamaño `n`, `2n`,
 que sigue creciendo linealmente: `O(n)`.
 
 Tiempo: `O(n)`.
+
+## Suma de rangos
+
+La primer opción fue sumar elementos dentro de un `for` con un i de `n` a `m`,
+pero después encontré la expresión que devuelve el valor correcto:
+
+`m(m+1) / 2 - n(n-1) / 2`.
+
+Elaboro:
+
+Asumiendo que `n < m`,
+la suma de todos los números naturales `i` tal que `n <= i<= m` puede obtenerse
+sumando todos los números naturales `i <= m`, y restando la suma de todos los
+números naturales `i <= n - 1`.
+(De considerarse hasta `i<= n`, se restaría un `n` de más, empezando la suma
+en `n+1`, no en `n`)
+Ambas sumas pueden obtenerse con la fórmula de los
+[números triangulares](https://en.m.wikipedia.org/wiki/Triangular_number).
+
+La suma de números `i <= m` se obtiene con `m (m+1) / 2`,
+la suma de números `i <= n - 1` se obtiene con `n(n-1) / 2`
+
+Por lo tanto, la suma de números `i` tal que `n <= i<= m` se obtiene con
+`m(m+1) / 2 - n(n-1) / 2`.
+
+### Complejidad
+
+Espacio: `O(1)`
+
+Tiempo: `O(1)` 
+
+Aunque dependiendo de las implementaciones de los algoritmos de multiplicación
+del intérprete, las complejidades de tiempo y espacio no son constantes, para
+términos prácticos se puede escribir como constante.

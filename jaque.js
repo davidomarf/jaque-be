@@ -75,11 +75,11 @@ function removeDuplicates(arr) {
   // If the array is empty, return empty array.
   if (arr.length === 0) {
     return [];
-  } 
+  }
   // If the array has one element, it cannot be duplicated.
   // Return the same element
   else if (arr.length === 1) {
-    return [arr[0]]; 
+    return [arr[0]];
     // Return an array with one element instead of the same array as
     // a defensive thing.
   }
@@ -96,8 +96,34 @@ function removeDuplicates(arr) {
   return set;
 }
 
+/**
+ * Obtains the sum of all natural numbers inside a range. Inclusive.
+ * 
+ * @param {number} n Lower bound of the range.
+ * @param {number} m Upper bound of the range.
+ * @return {number} Sum of all the natural numbers n <= i <= m
+ */
+function sumRange(n, m) {
+  if (m < 0 || n < 0) throw "One of the parameters is negative";
+  // Swap numbers if order is incorrect
+  if (n > m) {
+    let a = n;
+    n = m;
+    m = a;
+  }
+  // Uses triangular numbers. The sum of:
+  // all the natural numbers between n and m, is the same as:
+  //     the sum of all natural numbers between 0 and m,
+  //     minus the sum of all natural numbers **before** n (0 and n-1).
+
+  // The formula for the sum of the first n natural numbers is
+  // sum = n * (n + 1) / 2
+  return (m * (m + 1)) / 2 - (n * (n - 1)) / 2;
+}
+
 module.exports = {
   reverse,
   subarray,
-  removeDuplicates
+  removeDuplicates,
+  sumRange
 };
