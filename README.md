@@ -5,6 +5,12 @@
 - Clonar el repositorio,
 - Ejecutar tests con `npm test`
 
+Los problemas 1-4 están dentro de `./jaque.js`.
+
+El problema 5 está en `./appointer.js`.
+
+Los tests está separados por problema dentro de `./test/`.
+
 ## Contenido
 
 1. [Reversa](#reversa)
@@ -22,7 +28,7 @@ palabra, intercambiando
 `i` por `n - i`:
 
 ```js
-for (let i = 0, n = str.length, mitad = floor(n / 2); i < n; i++) {
+for (let i = 0, n = str.length, mitad = floor(n / 2); i < mitad; i++) {
   let temp = str[i];
   str[i] = str[n - 1 - i];
   str[n - 1 - i] = temp;
