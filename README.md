@@ -1,3 +1,18 @@
+# Prueba Jaque BED
+
+## Cómo iniciar
+
+- Clonar el repositorio,
+- Ejecutar tests con `npm test`
+
+## Contenido
+
+1. [Reversa](reversa)
+1. [Subconjuntos](subconjuntos)
+1. [Duplicados](duplicados)
+1. [Suma de rangos](suma-de-rangos)
+1. [Gestor de citas](gestor-de-citas)
+
 ## Reversa
 
 Primero pensé en reemplazar los caracteres in-place:
