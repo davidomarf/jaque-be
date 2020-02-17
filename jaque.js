@@ -98,7 +98,7 @@ function removeDuplicates(arr) {
 
 /**
  * Obtains the sum of all natural numbers inside a range. Inclusive.
- * 
+ *
  * @param {number} n Lower bound of the range.
  * @param {number} m Upper bound of the range.
  * @return {number} Sum of all the natural numbers n <= i <= m

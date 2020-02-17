@@ -4,7 +4,7 @@ const sumRange = require("../jaque").sumRange;
 let inputs = [
   [2, 5],
   [4, 8],
-  [0, 25], 
+  [0, 25],
   [5, 10] // The result of sumRange(n, m) is the same as sumRange(0, m) - sumRange(0, n-1)
 ];
 
